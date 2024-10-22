@@ -1,0 +1,18 @@
+name: Print Software Versions 
+
+on:
+    push:
+        branches: ["main"] 
+
+jobs:
+    PrintLanguageVersion:
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Print Java Version
+                run: java --version
+    PrintDBMSVersion:
+        runs-on: ubuntu-latest
+        needs: [PrintLanguageVersion]
+        steps:
+            -   name: Print MongoDB Version
+                run: mongod --version
