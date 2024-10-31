@@ -9,7 +9,8 @@ jobs:
       - name: Print Java Version
         run: java --version
   PrintDBMSVersions:
+    runs-on: ubuntu-latest
     needs: [PrintLanguageVersion]
     steps:
-      - name Print MongoDB version 
-        run mongod --version
+      - name: Print MongoDB version 
+        run: mongod --version
