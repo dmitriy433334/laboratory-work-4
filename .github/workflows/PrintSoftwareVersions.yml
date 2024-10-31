@@ -29,9 +29,5 @@ jobs:
           --health-timeout 5s 
           --health-retries 5
     steps:
-      - name: Print PostgreSQL Version
-        run: psql --version
-      - name: Print MySQL Version
-        run: mysql -V
       - name: Print MongoDB Version
-        run: mongo --version
+        run: mongod --version
