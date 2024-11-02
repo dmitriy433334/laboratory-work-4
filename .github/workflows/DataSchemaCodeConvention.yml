@@ -11,4 +11,4 @@ jobs:
             - name: start linter
               run: |
                 npm i -g @prantlf/jsonlint 
-                jsonlint -q $GITHUB_WORKSPACE/DataSchemaModified.json || exit 1
+                jsonlint -q $GITHUB_WORKSPACE/DataSchema.json || exit 1
