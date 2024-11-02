@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "",
+    "type": "", what does the fox say?
     "properties": {
       "User": {
         "type": "object",
