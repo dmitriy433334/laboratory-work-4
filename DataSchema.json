@@ -1,0 +1,110 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "User": {
+        "type": "object",
+        "description": "User entity storing user data",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "User's full name",
+            "pattern": "^[A-Z][a-z]+$"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "User's email address",
+            "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+          },
+          "age": {
+            "type": "integer",
+            "description": "User's age",
+            "minimum": 0,
+            "maximum": 120
+          },
+          "activityData": {
+            "type": "object",
+            "description": "Additional activity data in JSON format"
+          }
+        },
+        "required": ["name", "email", "age"]
+      },
+      "Payment": {
+        "type": "object",
+        "description": "Payment entity representing payments made by users",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "description": "Payment amount",
+            "minimum": 0.01
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of payment"
+          },
+          "user": {
+            "type": "object",
+            "$ref": "#/properties/User"
+          }
+        },
+        "required": ["amount", "date", "user"]
+      },
+      "Diet": {
+        "type": "object",
+        "description": "Diet entity storing nutritional information",
+        "properties": {
+          "fat": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "protein": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "calories": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the diet"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the diet"
+          },
+          "user": {
+            "type": "object",
+            "$ref": "#/properties/User"
+          }
+        },
+        "required": ["fat", "protein", "calories", "name", "user"]
+      },
+      "ActivityReport": {
+        "type": "object",
+        "description": "ActivityReport entity storing user activity data",
+        "properties": {
+          "steps": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "CaloriesBurned": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "TimeActive": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "user": {
+            "type": "object",
+            "$ref": "#/properties/User"
+          }
+        },
+        "required": ["steps", "CaloriesBurned", "TimeActive", "user"]
+      }
+    }
+  }
+  

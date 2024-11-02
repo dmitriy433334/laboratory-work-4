@@ -1,0 +1,14 @@
+name: JSON linter 
+on:
+    push:
+        branches: [main]
+jobs:
+    checkDatabaseSchemaValidation:
+        runs-on: Ubuntu-latest
+        steps:
+            - name: checkout
+              uses: "actions/checkout@v3"
+            - name: start linter
+              run: |
+                npm i -g @prantlf/jsonlint
+                jsonlint $GITHUB_WORKSPACE/DataSchema.json
